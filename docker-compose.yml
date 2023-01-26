@@ -1,0 +1,7 @@
+version: "1"
+services:
+  tests:
+    working_dir: /app
+    image: openjdk
+    volumes:
+      - .:/app

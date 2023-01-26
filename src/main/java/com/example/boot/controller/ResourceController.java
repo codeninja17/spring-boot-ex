@@ -10,9 +10,9 @@ import java.util.NoSuchElementException;
 @RestController
 public class ResourceController {
 
-    @RequestMapping(method = RequestMethod.GET,path = "/name")
+    @RequestMapping(method = RequestMethod.GET, path = "/name")
     public String getName(){
-        throw new NoSuchElementException("Element with Name Not FOund !!!");
+        return "Ankit";
     }
 
     @ExceptionHandler
