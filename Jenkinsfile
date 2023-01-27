@@ -20,7 +20,9 @@ pipeline {
           keyPrefix: "docker",
           sleepTime: "10",
           checkHealth: "true",
-          maxAttempts: "13"
+          maxAttempts: "13",
+          versionLabelFormat: "34",
+          versionDescriptionFormat: "${345}",
         ])
       }
     }
