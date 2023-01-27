@@ -11,12 +11,6 @@ pipeline {
      environment {
           gcs = "${sh(script:'echo -n ${GIT_BRANCH_NAME,,}-${GIT_COMMIT:0:8}', returnStdout: true).trim()}"
      }
-     when {
-          anyOf {
-            branch 'develop';
-            branch 'master'
-          }
-     }
       steps {
         step([$class: 'AWSEBDeploymentBuilder',
                credentialId: 'aws-cred',
