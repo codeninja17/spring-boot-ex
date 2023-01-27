@@ -4,6 +4,7 @@ pipeline {
   stages {
     stage('Deploy') {
       steps {
+        echo "${aws-cred}"
         step([$class: 'AWSEBDeploymentBuilder',
           applicationName: 'boot',
           awsRegion: 'us-east-1',
