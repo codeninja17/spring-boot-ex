@@ -21,7 +21,8 @@ pipeline {
      environment {
           gcs = "${sh(script:'echo -n ${GIT_BRANCH_NAME,,}-${GIT_COMMIT:0:8}', returnStdout: true).trim()}"
      }
-//       steps {
+      steps {
+      echo "Done"
 //         step([$class: 'AWSEBDeploymentBuilder',
 //                credentialId: 'aws',
 //                awsRegion: 'us-east-1',
@@ -37,7 +38,7 @@ pipeline {
 //                sleepTime: '10',
 //                checkHealth: 'true',
 //                maxAttempts: '13'])
-//       }
+      }
     }
   }
 }
