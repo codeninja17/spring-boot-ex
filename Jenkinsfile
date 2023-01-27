@@ -26,7 +26,7 @@ pipeline {
                keyPrefix: 'docker',
                sleepTime: '10',
                checkHealth: 'true',
-               maxAttempts: '12'])
+               maxAttempts: '13'])
       }
     }
   }
