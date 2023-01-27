@@ -28,7 +28,7 @@ pipeline {
                awsRegion: "us-east-1",
                applicationName: "boot-2",
                environmentName: "Boot-2-env",
-               rootObject: ""."",
+               rootObject: ".",
                includes: "**/*",
                excludes: "",
                bucketName: "elasticbeanstalk-us-east-1-335298206423",
