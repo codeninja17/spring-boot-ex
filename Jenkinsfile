@@ -13,7 +13,7 @@ pipeline {
      }
       steps {
         step([$class: 'AWSEBDeploymentBuilder',
-               credentialId: 'aws-cred',
+               credentialId: 'aws',
                awsRegion: 'us-east-1',
                applicationName: 'boot',
                environmentName: 'Boot-env',
