@@ -2,14 +2,16 @@ pipeline {
 
   environment {
     GIT_BRANCH_NAME = "${sh(script:'echo ${GIT_BRANCH##*/}', returnStdout: true).trim()}"
-    GCS = "${sh(script: 'echo -n ${GIT_BRANCH_NAME,,}-${GIT_COMMIT:0:8}' , returnStdout: true).trim()}"
   }
   agent any
 
   stages {
     stage('Deploy') {
+     environment {
+          GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+     }
       steps {
-      echo "${GCS}"
+      echo "$GIT_COMMIT"
 //         step([$class: "AWSEBDeploymentBuilder",
 //           credentialId: "aws",
 //           awsRegion: "us-east-1",
