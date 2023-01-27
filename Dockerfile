@@ -6,6 +6,7 @@ COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 RUN chmod +x mvnw
 RUN ./mvnw dependency:resolve
+RUN ./mvnw clean
 COPY src ./src
 
 FROM base as test
@@ -18,6 +19,6 @@ FROM base as build
 RUN ./mvnw package
 
 FROM eclipse-temurin:17-jre-jammy as production
-EXPOSE 8080
+EXPOSE 8081
 COPY --from=build /app/target/boot-*.jar /app.jar
 CMD ["java", "-jar", "/app.jar"]
