@@ -15,7 +15,6 @@ pipeline {
 //         }
         stage('Deploy') {
             steps {
-                sh 'docker build -t boot:prod --target production .'
                 step([$class: 'AWSEBDeploymentBuilder',
                     applicationName: 'boot',
                     awsRegion: 'us-east-1',
