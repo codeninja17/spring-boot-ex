@@ -9,7 +9,7 @@ pipeline {
           awsRegion: 'us-east-1',
           bucketName: 'elasticbeanstalk-us-east-1-335298206423',
           keyPrefix: 'docker',
-          credentialId: '${aws-cred}'
+          credentialId: "${aws-cred}"
         ])
       }
     }
