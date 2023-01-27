@@ -1,7 +1,6 @@
 pipeline {
 
   environment {
-    jk_aws_id = '<JENKINS_AWS_CREDENTIAL_ID>'
     GIT_BRANCH_NAME = "${sh(script:'echo ${GIT_BRANCH##*/}', returnStdout: true).trim()}"
   }
   agent any
@@ -18,6 +17,7 @@ pipeline {
                }
            }
     stage('Deploy') {
+    echo "${GIT_BRANCH_NAME}"
      environment {
           gcs = "${sh(script:'echo -n ${GIT_BRANCH_NAME,,}-${GIT_COMMIT:0:8}', returnStdout: true).trim()}"
      }
