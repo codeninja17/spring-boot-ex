@@ -6,6 +6,17 @@ pipeline {
   agent any
 
   stages {
+    stage('Build') {
+        steps {
+          echo "${GIT_BRANCH_NAME}"
+          sh 'docker build -t boot:build --target build .'
+        }
+      }
+      stage('Test') {
+        steps {
+          sh 'docker build -t boot:test --target test .'
+        }
+      }
     stage('Deploy') {
      environment {
           GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
@@ -31,15 +42,3 @@ pipeline {
     }
   }
 }
-
-//   stage('Build') {
-//       steps {
-//         echo "${GIT_BRANCH_NAME}"
-//         sh 'docker build -t boot:build --target build .'
-//       }
-//     }
-//     stage('Test') {
-//       steps {
-//         sh 'docker build -t boot:test --target test .'
-//       }
-//     }
