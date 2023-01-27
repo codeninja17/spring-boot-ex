@@ -6,20 +6,7 @@ pipeline {
   agent any
 
   stages {
-    stage('Build') {
-      steps {
-        echo "${GIT_BRANCH_NAME}"
-        sh 'docker build -t boot:build --target build .'
-      }
-    }
-    stage('Test') {
-      steps {
-        sh 'docker build -t boot:test --target test .'
-      }
-    }
     stage('Deploy') {
-
-
       steps {
         step([$class: "AWSEBDeploymentBuilder",
           credentialId: "aws",
@@ -39,3 +26,15 @@ pipeline {
     }
   }
 }
+
+//   stage('Build') {
+//       steps {
+//         echo "${GIT_BRANCH_NAME}"
+//         sh 'docker build -t boot:build --target build .'
+//       }
+//     }
+//     stage('Test') {
+//       steps {
+//         sh 'docker build -t boot:test --target test .'
+//       }
+//     }
