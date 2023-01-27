@@ -20,7 +20,7 @@ pipeline {
     stage('Deploy') {
 
      environment {
-         gcs = '${sh(script:"echo -n ${GIT_BRANCH_NAME,,}-${GIT_COMMIT:0:8}", returnStdout: true).trim()}''
+         gcs = '${sh(script:"echo -n ${GIT_BRANCH_NAME,,}-${GIT_COMMIT:0:8}", returnStdout: true).trim()}'
      }
       steps {
       echo "Done"
