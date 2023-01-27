@@ -12,22 +12,22 @@ pipeline {
      }
       steps {
       echo "$gcs"
-        step([$class: "AWSEBDeploymentBuilder",
-          credentialId: "aws",
-          awsRegion: "us-east-1",
-          applicationName: "boot-2",
-          environmentName: "Boot-2-env",
-          rootObject: ".",
-          includes: "**/*",
-          excludes: "",
-          bucketName: "elasticbeanstalk-us-east-1-335298206423",
-          keyPrefix: "docker",
-          sleepTime: "10",
-          checkHealth: "true",
-          maxAttempts: "13",
-          versionLabelFormat: "34",
-          versionDescriptionFormat: "${345}",
-        ])
+//         step([$class: "AWSEBDeploymentBuilder",
+//           credentialId: "aws",
+//           awsRegion: "us-east-1",
+//           applicationName: "boot-2",
+//           environmentName: "Boot-2-env",
+//           rootObject: ".",
+//           includes: "**/*",
+//           excludes: "",
+//           bucketName: "elasticbeanstalk-us-east-1-335298206423",
+//           keyPrefix: "docker",
+//           sleepTime: "10",
+//           checkHealth: "true",
+//           maxAttempts: "13",
+//           versionLabelFormat: "34",
+//           versionDescriptionFormat: "${345}",
+//         ])
       }
     }
   }
