@@ -21,23 +21,23 @@ pipeline {
      environment {
           gcs = "${sh(script:'echo -n ${GIT_BRANCH_NAME,,}-${GIT_COMMIT:0:8}', returnStdout: true).trim()}"
      }
-      steps {
-        step([$class: 'AWSEBDeploymentBuilder',
-               credentialId: 'aws',
-               awsRegion: 'us-east-1',
-               applicationName: 'boot',
-               environmentName: 'Boot-env',
-               rootObject: '.',
-               includes: '**/*',
-               excludes: '',
-               bucketName: 'elasticbeanstalk-us-east-1-335298206423',
-               versionLabelFormat: "$gcs",
-               versionDescriptionFormat: "$gcs",
-               keyPrefix: 'docker',
-               sleepTime: '10',
-               checkHealth: 'true',
-               maxAttempts: '13'])
-      }
+//       steps {
+//         step([$class: 'AWSEBDeploymentBuilder',
+//                credentialId: 'aws',
+//                awsRegion: 'us-east-1',
+//                applicationName: 'boot',
+//                environmentName: 'Boot-env',
+//                rootObject: '.',
+//                includes: '**/*',
+//                excludes: '',
+//                bucketName: 'elasticbeanstalk-us-east-1-335298206423',
+//                versionLabelFormat: "$gcs",
+//                versionDescriptionFormat: "$gcs",
+//                keyPrefix: 'docker',
+//                sleepTime: '10',
+//                checkHealth: 'true',
+//                maxAttempts: '13'])
+//       }
     }
   }
 }
