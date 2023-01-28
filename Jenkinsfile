@@ -3,11 +3,7 @@ pipeline {
   environment {
     GIT_BRANCH_NAME = "${sh(script:'echo ${GIT_BRANCH##*/}', returnStdout: true).trim()}"
   }
-  agent {
-      dockerfile {
-        label : boot:latest
-      }
-  }
+  agent any
 
   stages {
     stage('Build') {
