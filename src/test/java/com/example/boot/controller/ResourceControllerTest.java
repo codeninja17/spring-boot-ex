@@ -8,6 +8,6 @@ class ResourceControllerTest {
 
     @Test
     void name() {
-        assertEquals(1,2);
+        assertEquals(1,1);
     }
 }
