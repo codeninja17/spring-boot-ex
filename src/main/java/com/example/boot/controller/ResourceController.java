@@ -1,6 +1,7 @@
 package com.example.boot.controller;
 
 import com.example.boot.exception.handler.ExceptionModel;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +11,12 @@ import java.util.NoSuchElementException;
 @RestController
 public class ResourceController {
 
+    @Value(value = "${default.name}")
+    private String name;
+
     @RequestMapping(method = RequestMethod.GET, path = "/name")
     public String getName(){
-        return "Ankit";
+        return name;
     }
 
     @ExceptionHandler
@@ -22,5 +26,4 @@ public class ResourceController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(exceptionModel);
     }
-
 }
